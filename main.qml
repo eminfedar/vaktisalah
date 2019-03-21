@@ -265,11 +265,8 @@ Window {
 
     TrayIcon {
         id: trayIcon
-        Component.onCompleted: {
-            icon = iconTray
-            toolTip = root.title
-            show()
-        }
+        icon: iconTray
+        toolTip: root.title
 
         onActivated: {
             if(reason === 1){
