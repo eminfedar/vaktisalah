@@ -4,6 +4,8 @@ import "praytimes.js" as PrayTimes
 import org.eminfedar.file 1.0
 import systemtrayicon 1.0
 import QtQuick.Controls 1.4
+import QtMultimedia 5.12
+import QtQuick.Dialogs 1.2
 import "ui"
 
 Window {
@@ -31,10 +33,13 @@ Window {
 
     property date currentDate: new Date()
     property date tomorrowDate: new Date(currentDate.getTime() + (1000 * 60 * 60 * 24))
+    property int warnMin: 15
+    property bool warned: true
+
 
     Component.onCompleted: {
-        PrayTimes.prayTimes.setMethod('MWL');
-        PrayTimes.prayTimes.tune(vakitOffset);
+        PrayTimes.prayTimes.setMethod('MWL')
+        PrayTimes.prayTimes.tune(vakitOffset)
 
         readSettings();
         updateCountryCity()
@@ -42,17 +47,19 @@ Window {
     }
 
     Timer{
-        id: timer
+        id: secondTicker
         interval: 1000
-        running: false
+        running: true
         repeat: true
 
         onTriggered: {
-            tickTime();
+            refreshVakits();
         }
     }
 
     function refreshVakits() {
+        currentDate = new Date()
+        tomorrowDate = new Date(currentDate.getTime() + (1000 * 60 * 60 * 24))
         var tomorrowTimes = PrayTimes.prayTimes.getTimes(tomorrowDate, [selectedObj.lat, selectedObj.long], selectedObj.timeZone)
         var todayTimes = PrayTimes.prayTimes.getTimes(currentDate, [selectedObj.lat, selectedObj.long], selectedObj.timeZone)
 
@@ -67,49 +74,53 @@ Window {
         mainForm.times = newTimes
 
         tickTime()
-        timer.start()
     }
 
     function tickTime() {
-        var nowDate = new Date()
-        var hourNow = nowDate.getHours()
-        var minuteNow = nowDate.getMinutes()
-        var hourTimes = -99
-        var minuteTimes = -99
+        var timeDate = new Date()
 
         var i = 0
         for(i=0; i<mainForm.times.length; i++){
-            hourTimes = parseInt(mainForm.times[i].split(":")[0])
-            minuteTimes = parseInt(mainForm.times[i].split(":")[1])
-            if(hourNow < hourTimes){
+            timeDate.setHours(parseInt(mainForm.times[i].split(":")[0]))
+            timeDate.setMinutes(parseInt(mainForm.times[i].split(":")[1]))
+            timeDate.setSeconds(0, 0)
+            if( timeDate.getTime() > currentDate.getTime() ){
                 break
             }
         }
 
         var vakitDate = new Date();
-        if(i === 6) {
+        if(i === 7) {
+            i = 6
             // tomorrow:
-            vakitDate.setFullYear(laterDay.getFullYear())
-            vakitDate.setMonth(laterDay.getMonth())
-            vakitDate.setDate(laterDay.getDate())
+            vakitDate.setFullYear(tomorrowDate.getFullYear())
+            vakitDate.setMonth(tomorrowDate.getMonth())
+            vakitDate.setDate(tomorrowDate.getDate())
             vakitDate.setHours(mainForm.times[6].split(":")[0])
             vakitDate.setMinutes(mainForm.times[6].split(":")[1])
         } else {
-            vakitDate.setFullYear(nowDate.getFullYear());
-            vakitDate.setMonth(nowDate.getMonth());
-            vakitDate.setDate(nowDate.getDate())
+            vakitDate.setFullYear(currentDate.getFullYear());
+            vakitDate.setMonth(currentDate.getMonth());
+            vakitDate.setDate(currentDate.getDate())
             vakitDate.setHours(mainForm.times[i].split(":")[0])
             vakitDate.setMinutes(mainForm.times[i].split(":")[1])
         }
-        vakitDate.setSeconds(0)
+        vakitDate.setSeconds(0, 0)
 
-        var remainingTimeToNextVakit = vakitDate.getTime() - nowDate.getTime()
+        var remainingTimeToNextVakit = vakitDate.getTime() - currentDate.getTime()
         remainingTimeToNextVakit -= (3 * 60 * 60 * 1000) // remove 3 additional hours
-        mainForm.txt_kalan.text = new Date(remainingTimeToNextVakit).toLocaleString(Qt.locale(),"hh:mm:ss")
+        remainingTimeToNextVakit = new Date(remainingTimeToNextVakit)
+        mainForm.txt_kalan.text = remainingTimeToNextVakit.toLocaleString(Qt.locale(),"hh:mm:ss")
         mainForm.txt_kalanIsim.text = getVakitName(i);
 
         // Colorize current vakit
         for(var k=0; k < mainForm.timesTxts.length; k++) {
+            if (i === 6) {
+                mainForm.timesTxts[0].color = "#00ff00";
+                mainForm.timesLbls[0].color = "#00ff00";
+                break
+            }
+
             if (k === i) {
                 mainForm.timesTxts[k].color = "#00ff00";
                 mainForm.timesLbls[k].color = "#00ff00";
@@ -117,6 +128,19 @@ Window {
                 mainForm.timesTxts[k].color = "#ffffff";
                 mainForm.timesLbls[k].color = "#ffffff";
             }
+        }
+
+        if (remainingTimeToNextVakit.getHours() === 0 && remainingTimeToNextVakit.getMinutes() % warnMin === 0 && !warned) {
+            settingsForm.visible = false
+            mainForm.visible = true
+            playSound.play()
+            root.show()
+            root.raise()
+            root.flags = Qt.WindowStaysOnTopHint
+            root.flags = 0
+            warned = true
+        } else if ( warned && remainingTimeToNextVakit.getHours() === 0 && remainingTimeToNextVakit.getMinutes() % warnMin === 1) {
+            warned = false
         }
     }
 
@@ -149,6 +173,8 @@ Window {
             selectedCity = jsonedSettings.city
             root.x = jsonedSettings.x
             root.y = jsonedSettings.y
+            warnMin = jsonedSettings.warnMin
+            settingsForm.sli_warnMin.value = warnMin
         }
     }
 
@@ -157,7 +183,8 @@ Window {
             country: selectedCountry,
             city: selectedCity,
             x: root.x,
-            y: root.y
+            y: root.y,
+            warnMin: warnMin
         }
 
         file.saveFile(settingsPath, JSON.stringify(obj))
@@ -263,6 +290,14 @@ Window {
         }
     }
 
+    Connections {
+        target: settingsForm.sli_warnMin
+        onMoved: {
+            warnMin = settingsForm.sli_warnMin.value
+            saveSettings()
+        }
+    }
+
     TrayIcon {
         id: trayIcon
         icon: iconTray
@@ -291,6 +326,11 @@ Window {
                 Qt.quit()
             }
         }
+    }
+
+    SoundEffect {
+        id: playSound
+        source: "../sound/warn.wav"
     }
 
 }

@@ -6,7 +6,8 @@ Rectangle {
 
     width: 200
     height: 290
-    color: "#bb000000"
+    color: "#cc000000"
+    property alias sli_warnMin: sli_warnMin
     property alias cmb_cities: cmb_cities
     property alias cmb_countries: cmb_countries
     property alias ma_back: ma_back
@@ -98,6 +99,37 @@ Rectangle {
         color: "#ee00692e"
         anchors.horizontalCenterOffset: 1
         anchors.horizontalCenter: parent.horizontalCenter
+    }
+
+    Text {
+        id: lbl_warningmin
+        x: 12
+        y: 121
+        color: "#ffffff"
+        text: qsTr("Dakika kala uyar:")
+        font.pixelSize: 12
+    }
+
+    Slider {
+        id: sli_warnMin
+        x: 12
+        y: 145
+        width: 176
+        height: 20
+        stepSize: 1
+        from: 1
+        to: 60
+        value: 15
+    }
+
+    Text {
+        id: txt_warnMin
+        x: 109
+        y: 121
+        color: "#00ff00"
+        text: sli_warnMin.value
+        horizontalAlignment: Text.AlignLeft
+        font.pixelSize: 12
     }
 }
 

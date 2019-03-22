@@ -9,5 +9,6 @@
         <file>ui/Settings.ui.qml</file>
         <file>praytimes.js</file>
         <file>icon/128.png</file>
+        <file>sound/warn.wav</file>
     </qresource>
 </RCC>

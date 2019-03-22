@@ -5,7 +5,7 @@ Rectangle {
 
     width: 200
     height: 290
-    color: "#bb000000"
+    color: "#cc000000"
 
     property alias txt_sehir: txt_sehir
     property alias txt_ulke: txt_ulke

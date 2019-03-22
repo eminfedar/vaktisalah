@@ -1,8 +1,9 @@
-#include <QApplication>
+#include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include "file.h"
 #include <QSystemTrayIcon>
 #include <QQmlContext>
+#include <QMessageBox>
 
 Q_DECLARE_METATYPE(QSystemTrayIcon::ActivationReason)
 
@@ -14,7 +15,7 @@ void addQMLApis() {
 
 int main(int argc, char *argv[])
 {
-    QApplication app(argc, argv);
+    QGuiApplication app(argc, argv);
 
     addQMLApis();
 
