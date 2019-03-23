@@ -5,5 +5,8 @@ a Qt-Based Prayer Times application for Win/Linux/Mac
 ![Photo 2](https://github.com/eminfedar/vaktisalah/raw/master/foto/2.png)
 
 ## Download
-- [Windows](https://github.com/eminfedar/vaktisalah/)
-- [Pardus/Ubuntu/Debian](https://github.com/eminfedar/vaktisalah/)
+You can download releases for:
+- Windows (.rar)
+- Pardus | Ubuntu | Debian (.deb)
+
+Go to the [releases page](https://github.com/eminfedar/vaktisalah/releases)
