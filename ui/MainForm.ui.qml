@@ -1,4 +1,4 @@
-import QtQuick 2.7
+import QtQuick 2.5
 
 Rectangle {
     id: rectangle
@@ -6,6 +6,7 @@ Rectangle {
     width: 200
     height: 290
     color: "#cc000000"
+    property alias txt_error: txt_error
 
     property alias txt_sehir: txt_sehir
     property alias txt_ulke: txt_ulke
@@ -246,6 +247,17 @@ Rectangle {
 
             cursorShape: Qt.PointingHandCursor
         }
+    }
+
+    Text {
+        id: txt_error
+        x: 8
+        y: 14
+        width: 154
+        height: 260
+        color: "#ff0000"
+        wrapMode: Text.WrapAnywhere
+        font.pixelSize: 12
     }
 }
 

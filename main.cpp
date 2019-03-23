@@ -1,29 +1,72 @@
-#include <QGuiApplication>
+#include <QApplication>
 #include <QQmlApplicationEngine>
 #include "file.h"
 #include <QSystemTrayIcon>
+#include <QAction>
+#include <QMenu>
 #include <QQmlContext>
-#include <QMessageBox>
-
-Q_DECLARE_METATYPE(QSystemTrayIcon::ActivationReason)
+#include <QDebug>
 
 void addQMLApis() {
     qmlRegisterType<File>("org.eminfedar.file", 1, 0, "File");
-    qmlRegisterType<QSystemTrayIcon>("systemtrayicon", 1, 0, "TrayIcon");
-    qRegisterMetaType<QSystemTrayIcon::ActivationReason>("ActivationReason");
+}
+
+void addSysTrayIcon(QQmlApplicationEngine* engine) {
+    QObject *root = 0;
+    if (engine->rootObjects().size() > 0)
+    {
+        root = engine->rootObjects().at(0);
+
+        QAction *restoreAction = new QAction(QObject::tr("Göster / Gizle"), root);
+        root->connect(restoreAction, &QAction::triggered, [=](){
+            root->setProperty("visible", !root->property("visible").toBool());
+        });
+        QAction *quitAction = new QAction(QObject::tr("Programdan Çık"), root);
+        root->connect(quitAction, SIGNAL(triggered()), qApp, SLOT(quit()));
+
+        QMenu *trayIconMenu = new QMenu();
+        trayIconMenu->addAction(restoreAction);
+        trayIconMenu->addSeparator();
+        trayIconMenu->addAction(quitAction);
+
+        QSystemTrayIcon *trayIcon = new QSystemTrayIcon(root);
+        trayIcon->setContextMenu(trayIconMenu);
+        trayIcon->setIcon(QIcon(":/icon/128.png"));
+        trayIcon->show();
+        trayIcon->connect(trayIcon, &QSystemTrayIcon::activated, [=](QSystemTrayIcon::ActivationReason reason){
+            if ( reason == QSystemTrayIcon::Trigger || reason == QSystemTrayIcon::DoubleClick){
+                root->setProperty("visible", !root->property("visible").toBool());
+            }
+        });
+    }
 }
 
 int main(int argc, char *argv[])
 {
-    QGuiApplication app(argc, argv);
+    QApplication app(argc, argv);
 
     addQMLApis();
 
-    app.setWindowIcon(QIcon("qrc:/icon/128.png"));
+    app.setStyleSheet("QMenu{"
+                      "background: #292929;"
+                      "color: #FFFFFF;"
+                      "}"
+                      ""
+                      "QMenu::item:selected{"
+                      "background-color: rgb(0, 150, 0);"
+                      "}"
+                      ""
+                      "QMenu::item:disabled{"
+                      "color: #BBBBBB;"
+                      "background-color: #393939;"
+                      "}");
+    app.setWindowIcon(QIcon(":/icon/128.png"));
 
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("iconTray", QIcon(":/icon/128.png"));
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+
+    addSysTrayIcon(&engine);
 
     return app.exec();
 }

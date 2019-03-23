@@ -1,5 +1,5 @@
-import QtQuick 2.7
-import QtQuick.Controls 2.5
+import QtQuick 2.5
+import QtQuick.Controls 2.0
 
 Rectangle {
     id: rectangle
@@ -7,7 +7,7 @@ Rectangle {
     width: 200
     height: 290
     color: "#cc000000"
-    property alias sli_warnMin: sli_warnMin
+    property alias sb_warnMin: sb_warnMin
     property alias cmb_cities: cmb_cities
     property alias cmb_countries: cmb_countries
     property alias ma_back: ma_back
@@ -110,33 +110,19 @@ Rectangle {
         font.pixelSize: 12
     }
 
-    Slider {
-        id: sli_warnMin
+    SpinBox {
+        id: sb_warnMin
         x: 12
-        y: 145
+        y: 142
         width: 176
-        height: 20
-        stepSize: 1
+        height: 28
         from: 1
-        to: 60
         value: 15
-    }
-
-    Text {
-        id: txt_warnMin
-        x: 109
-        y: 121
-        color: "#00ff00"
-        text: sli_warnMin.value
-        horizontalAlignment: Text.AlignLeft
-        font.pixelSize: 12
+        to: 60
     }
 }
-
-
-
-
 /*##^## Designer {
     D{i:3;anchors_height:100;anchors_width:100}
-}
- ##^##*/
+    }
+     ##^##*/
+

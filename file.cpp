@@ -14,7 +14,7 @@ QString File::readFile(QString file) const{
 
     // Creating the file and opening.
     QFile fi(file);
-    if(!fi.open(QFile::ReadWrite | QFile::Text))
+    if(!fi.open(QFile::ReadOnly | QFile::Text))
         return tr("ERR: Can't access the file\n(maybe some program using it):") + file;
 
     // Reading.

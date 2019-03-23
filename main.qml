@@ -2,10 +2,8 @@ import QtQuick 2.7
 import QtQuick.Window 2.2
 import "praytimes.js" as PrayTimes
 import org.eminfedar.file 1.0
-import systemtrayicon 1.0
-import QtQuick.Controls 1.4
-import QtMultimedia 5.12
-import QtQuick.Dialogs 1.2
+import QtQuick.Controls 2.0
+import QtMultimedia 5.7
 import "ui"
 
 Window {
@@ -17,7 +15,7 @@ Window {
     title: qsTr("Vakt-i Salah")
     flags: Qt.FramelessWindowHint | Qt.Window
 
-    property string dataPath: "../data/places.json"
+    property string dataPath: ":/data/places.json"
     property string settingsPath: "./settings.json"
 
     property string selectedCountry: "Türkiye";
@@ -33,7 +31,7 @@ Window {
 
     property date currentDate: new Date()
     property date tomorrowDate: new Date(currentDate.getTime() + (1000 * 60 * 60 * 24))
-    property int warnMin: 15
+    property int warnMin: settingsForm.sb_warnMin.value
     property bool warned: true
 
 
@@ -43,7 +41,6 @@ Window {
 
         readSettings();
         updateCountryCity()
-        trayIcon.show()
     }
 
     Timer{
@@ -136,8 +133,8 @@ Window {
             playSound.play()
             root.show()
             root.raise()
-            root.flags = Qt.WindowStaysOnTopHint
-            root.flags = 0
+            root.flags = Qt.WindowStaysOnTopHint | Qt.FramelessWindowHint | Qt.Window
+            root.flags = Qt.FramelessWindowHint | Qt.Window
             warned = true
         } else if ( warned && remainingTimeToNextVakit.getHours() === 0 && remainingTimeToNextVakit.getMinutes() % warnMin === 1) {
             warned = false
@@ -166,15 +163,17 @@ Window {
 
     function readSettings() {
         var data = file.readFile(settingsPath)
-        if (data.length > 0) {
+        if (data.length > 0 && data.substring(0,3) !== "ERR") {
             var jsonedSettings = JSON.parse(data)
 
             selectedCountry = jsonedSettings.country
             selectedCity = jsonedSettings.city
             root.x = jsonedSettings.x
             root.y = jsonedSettings.y
-            warnMin = jsonedSettings.warnMin
-            settingsForm.sli_warnMin.value = warnMin
+            settingsForm.sb_warnMin.value = warnMin = jsonedSettings.warnMin
+        } else {
+            saveSettings()
+            readSettings()
         }
     }
 
@@ -184,7 +183,7 @@ Window {
             city: selectedCity,
             x: root.x,
             y: root.y,
-            warnMin: warnMin
+            warnMin: settingsForm.sb_warnMin.value
         }
 
         file.saveFile(settingsPath, JSON.stringify(obj))
@@ -192,21 +191,23 @@ Window {
 
     function updateCountryCity() {
         var data = file.readFile(dataPath)
-        jsonedAllData = JSON.parse(data)
+        if (data.length > 0 && data.substring(0,3) !== "ERR") {
+            jsonedAllData = JSON.parse(data)
 
-        countries = Object.keys(jsonedAllData)
-        settingsForm.cmb_countries.model = countries
-        settingsForm.cmb_countries.currentIndex = countries.indexOf(selectedCountry)
+            countries = Object.keys(jsonedAllData)
+            settingsForm.cmb_countries.model = countries
+            settingsForm.cmb_countries.currentIndex = countries.indexOf(selectedCountry)
 
-        cities = jsonedAllData[selectedCountry]
-        settingsForm.cmb_cities.model = Object.keys(cities)
-        settingsForm.cmb_cities.currentIndex = settingsForm.cmb_cities.model.indexOf(selectedCity)
+            cities = jsonedAllData[selectedCountry]
+            settingsForm.cmb_cities.model = Object.keys(cities)
+            settingsForm.cmb_cities.currentIndex = settingsForm.cmb_cities.model.indexOf(selectedCity)
 
-        mainForm.txt_sehir.text = selectedCity
-        mainForm.txt_ulke.text = selectedCountry
+            mainForm.txt_sehir.text = selectedCity
+            mainForm.txt_ulke.text = selectedCountry
 
-        selectedObj = cities[selectedCity]
-        refreshVakits()
+            selectedObj = cities[selectedCity]
+            refreshVakits()
+        }
     }
 
     MouseArea {
@@ -241,6 +242,8 @@ Window {
         onClicked: {
             settingsForm.visible = false
             mainForm.visible = true
+
+            saveSettings()
         }
     }
 
@@ -290,47 +293,9 @@ Window {
         }
     }
 
-    Connections {
-        target: settingsForm.sli_warnMin
-        onMoved: {
-            warnMin = settingsForm.sli_warnMin.value
-            saveSettings()
-        }
-    }
-
-    TrayIcon {
-        id: trayIcon
-        icon: iconTray
-        toolTip: root.title
-
-        onActivated: {
-            if(reason === 1){
-                trayMenu.popup()
-            } else {
-                if(root.visibility === Window.Hidden) {
-                    root.show()
-                } else {
-                    root.hide()
-                }
-            }
-        }
-    }
-
-    // Menu system tray
-    Menu {
-        id: trayMenu
-        MenuItem {
-            text: qsTr("Exit")
-            onTriggered: {
-                trayIcon.hide()
-                Qt.quit()
-            }
-        }
-    }
-
     SoundEffect {
         id: playSound
-        source: "../sound/warn.wav"
+        source: "qrc:/sound/warn.wav"
     }
 
 }
