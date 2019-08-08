@@ -1,13 +1,14 @@
 import QtQuick 2.5
 
 Rectangle {
-    id: rectangle
+    id: background
 
     width: 200
     height: 290
-    color: "#cc000000"
-    property alias txt_error: txt_error
+    color: "#000000"
+    property alias background: background
 
+    property alias txt_error: txt_error
     property alias txt_sehir: txt_sehir
     property alias txt_ulke: txt_ulke
     property alias ma_settings: ma_settings
