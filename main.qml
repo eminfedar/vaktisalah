@@ -3,7 +3,7 @@ import QtQuick.Window 2.2
 import "praytimes.js" as PrayTimes
 import org.eminfedar.file 1.0
 import QtQuick.Controls 2.0
-//import QtMultimedia 5.12
+import QtMultimedia 5.12
 import "ui"
 
 Window {
@@ -137,7 +137,7 @@ Window {
                 && !warned) {
             settingsForm.visible = false
             mainForm.visible = true
-            //playSound.play()
+            playSound.play()
             root.show()
             root.raise()
             root.flags = Qt.WindowStaysOnTopHint | Qt.FramelessWindowHint | Qt.Window
@@ -350,9 +350,9 @@ Window {
         }
     }
 
-    /* SoundEffect {
+    SoundEffect {
         id: playSound
         source: "qrc:/sound/warn.wav"
-    } */
+    }
 
 }
