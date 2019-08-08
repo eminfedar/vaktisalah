@@ -62,6 +62,7 @@ Window {
     function refreshVakits() {
         currentDate = new Date()
         tomorrowDate = new Date(currentDate.getTime() + (1000 * 60 * 60 * 24))
+
         var tomorrowTimes = PrayTimes.prayTimes.getTimes(tomorrowDate, [selectedObj.lat, selectedObj.lon], selectedObj.timeZone, daylightSaving)
         var todayTimes = PrayTimes.prayTimes.getTimes(currentDate, [selectedObj.lat, selectedObj.lon], selectedObj.timeZone, daylightSaving)
 
@@ -110,8 +111,7 @@ Window {
         vakitDate.setSeconds(0, 0)
 
         var remainingTimeToNextVakit = vakitDate - currentDate;
-
-        remainingTimeToNextVakit -= ((+3) * 60 * 60 * 1000) // remove timezone additional hours (+3 for Turkeys timezone.)
+        remainingTimeToNextVakit -= ((+2) * 60 * 60 * 1000) // remove timezone additional hours (when subtracted gmt+3 from gmt+3, it becomes gmt2, so remove that 2.)
 
         remainingTimeToNextVakit = new Date(remainingTimeToNextVakit)
         mainForm.txt_kalan.text = remainingTimeToNextVakit.toLocaleString(Qt.locale(),"hh:mm:ss")
