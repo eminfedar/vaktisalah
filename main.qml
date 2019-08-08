@@ -181,6 +181,7 @@ Window {
             root.y = jsonedSettings.y
             settingsForm.sli_saydamlik.value = jsonedSettings.backgroundOpacity
             settingsForm.sb_warnMin.value = warnMin = jsonedSettings.warnMin
+            settingsForm.cb_yazsaati.checked = daylightSaving = jsonedSettings.daylightSaving
         } else {
             saveSettings()
             readSettings()
@@ -195,7 +196,8 @@ Window {
             x: root.x,
             y: root.y,
             warnMin: settingsForm.sb_warnMin.value,
-            backgroundOpacity: settingsForm.sli_saydamlik.value
+            backgroundOpacity: settingsForm.sli_saydamlik.value,
+            daylightSaving: daylightSaving
         }
 
         file.saveFile(settingsPath, JSON.stringify(obj), 'config')
@@ -336,6 +338,8 @@ Window {
         target: settingsForm.cb_yazsaati
         onCheckStateChanged: {
             daylightSaving = settingsForm.cb_yazsaati.checkState === Qt.Checked ? 1 : 0
+
+            saveSettings()
         }
     }
 
