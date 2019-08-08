@@ -17,7 +17,7 @@ Window {
     flags: Qt.FramelessWindowHint | Qt.Window
 
     property string dataPath: ":/data/places.json"
-    property string settingsPath: "./settings.json"
+    property string settingsPath: "settings.json"
 
     property string selectedCountry: "Türkiye";
     property string selectedCity: "İstanbul";
@@ -170,7 +170,7 @@ Window {
     }
 
     function readSettings() {
-        var data = file.readFile(settingsPath)
+        var data = file.readFile(settingsPath, 'config')
         if (data.length > 0 && data.substring(0,3) !== "ERR") {
             var jsonedSettings = JSON.parse(data)
 
@@ -198,7 +198,7 @@ Window {
             backgroundOpacity: settingsForm.sli_saydamlik.value
         }
 
-        file.saveFile(settingsPath, JSON.stringify(obj))
+        file.saveFile(settingsPath, JSON.stringify(obj), 'config')
     }
 
     function updateSelectedPlace() {

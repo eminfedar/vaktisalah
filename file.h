@@ -12,8 +12,8 @@ public:
 signals:
 
 public slots:
-    QString readFile(QString path) const;
-    QString saveFile(QString path, QString data) const;
+    QString readFile(QString path, QString homeFolders = "") const;
+    QString saveFile(QString path, QString data, QString homeFolders = "") const;
 };
 
 #endif // FILE_H
