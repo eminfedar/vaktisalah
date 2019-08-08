@@ -109,9 +109,10 @@ Window {
         }
         vakitDate.setSeconds(0, 0)
 
-        var remainingTimeToNextVakit = vakitDate.getTime() - currentDate.getTime()
-        //remainingTimeToNextVakit += (24 * 60 * 60 * 1000) // add 1 day
-        remainingTimeToNextVakit -= ((selectedObj.timeZone-daylightSaving) * 60 * 60 * 1000) // remove timezone additional hours
+        var remainingTimeToNextVakit = vakitDate - currentDate;
+
+        remainingTimeToNextVakit -= ((+3) * 60 * 60 * 1000) // remove timezone additional hours (+3 for Turkeys timezone.)
+
         remainingTimeToNextVakit = new Date(remainingTimeToNextVakit)
         mainForm.txt_kalan.text = remainingTimeToNextVakit.toLocaleString(Qt.locale(),"hh:mm:ss")
         mainForm.txt_kalanIsim.text = getVakitName(i)
