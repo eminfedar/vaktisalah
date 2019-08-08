@@ -3,7 +3,7 @@ import QtQuick.Window 2.2
 import "praytimes.js" as PrayTimes
 import org.eminfedar.file 1.0
 import QtQuick.Controls 2.0
-import QtMultimedia 5.12
+//import QtMultimedia 5.12
 import "ui"
 
 Window {
@@ -132,15 +132,12 @@ Window {
                 mainForm.timesLbls[k].color = "#ffffff";
             }
         }
-        console.log(mainForm.txt_kalan.text.split(':')[0] === "00"
-                    , mainForm.txt_kalan.text.split(':')[1] === "15"
-                    , !warned)
         if (mainForm.txt_kalan.text.split(':')[0] === "00"
                 && mainForm.txt_kalan.text.split(':')[1] === "15"
                 && !warned) {
             settingsForm.visible = false
             mainForm.visible = true
-            playSound.play()
+            //playSound.play()
             root.show()
             root.raise()
             root.flags = Qt.WindowStaysOnTopHint | Qt.FramelessWindowHint | Qt.Window
@@ -182,6 +179,7 @@ Window {
             selectedDistrict = jsonedSettings.district
             root.x = jsonedSettings.x
             root.y = jsonedSettings.y
+            settingsForm.sli_saydamlik.value = jsonedSettings.backgroundOpacity
             settingsForm.sb_warnMin.value = warnMin = jsonedSettings.warnMin
         } else {
             saveSettings()
@@ -197,7 +195,7 @@ Window {
             x: root.x,
             y: root.y,
             warnMin: settingsForm.sb_warnMin.value,
-            opacity: settingsForm.sli_saydamlik.value
+            backgroundOpacity: settingsForm.sli_saydamlik.value
         }
 
         file.saveFile(settingsPath, JSON.stringify(obj))
@@ -347,12 +345,14 @@ Window {
             var colorCode = settingsForm.sli_saydamlik.value.toString(16);
             if (colorCode.length === 1) colorCode = "0" + colorCode;
             mainForm.background.color = settingsForm.background.color = "#" + colorCode + "000000"
+
+            saveSettings();
         }
     }
 
-    SoundEffect {
+    /* SoundEffect {
         id: playSound
         source: "qrc:/sound/warn.wav"
-    }
+    } */
 
 }
