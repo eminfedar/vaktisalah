@@ -3,7 +3,7 @@ import QtQuick.Window 2.2
 import "praytimes.js" as PrayTimes
 import org.eminfedar.file 1.0
 import QtQuick.Controls 2.0
-import QtMultimedia 5.12
+import QtMultimedia 5.9
 import "ui"
 
 Window {
