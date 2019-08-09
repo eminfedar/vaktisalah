@@ -80,59 +80,43 @@ Window {
     }
 
     function tickTime() {
-        var timeDate = new Date()
-
         var i = 0
         for(i=0; i<mainForm.times.length; i++){
-            timeDate.setHours(parseInt(mainForm.times[i].split(":")[0]))
-            timeDate.setMinutes(parseInt(mainForm.times[i].split(":")[1]))
-            timeDate.setSeconds(0, 0)
-            if( timeDate.getTime() > currentDate.getTime() ){
+            var vakithours = parseInt(mainForm.times[i].split(":")[0])
+            var vakitminutes = parseInt(mainForm.times[i].split(":")[1])
+
+            if( (vakithours*60)+vakitminutes > (currentDate.getHours()*60)+currentDate.getMinutes() )
                 break
-            }
         }
 
-        var vakitDate = new Date();
+        var vakitSeconds = 0
         if(i === 7) {
             i = 6
-            // tomorrow:
-            vakitDate.setFullYear(tomorrowDate.getFullYear())
-            vakitDate.setMonth(tomorrowDate.getMonth())
-            vakitDate.setDate(tomorrowDate.getDate())
-            vakitDate.setHours(mainForm.times[6].split(":")[0])
-            vakitDate.setMinutes(mainForm.times[6].split(":")[1])
+            vakitSeconds = parseInt(mainForm.times[i].split(":")[0]) * 60 * 60 + parseInt(mainForm.times[i].split(":")[1]) * 60 + 60;
+            vakitSeconds += 24 * 60 * 60
         } else {
-            vakitDate.setFullYear(currentDate.getFullYear());
-            vakitDate.setMonth(currentDate.getMonth());
-            vakitDate.setDate(currentDate.getDate())
-            vakitDate.setHours(mainForm.times[i].split(":")[0])
-            vakitDate.setMinutes(mainForm.times[i].split(":")[1])
+            vakitSeconds = parseInt(mainForm.times[i].split(":")[0]) * 60 * 60 + parseInt(mainForm.times[i].split(":")[1]) * 60 + 60;
         }
-        vakitDate.setSeconds(0, 0)
 
-        var remainingTimeToNextVakit = vakitDate - currentDate;
-        remainingTimeToNextVakit -= ((+2) * 60 * 60 * 1000) // remove timezone additional hours (when subtracted gmt+3 from gmt+3, it becomes gmt2, so remove that 2.)
+        var nowSeconds = currentDate.getHours() * 60 * 60 + currentDate.getMinutes() * 60 + currentDate.getSeconds()
 
-        remainingTimeToNextVakit = new Date(remainingTimeToNextVakit)
-        mainForm.txt_kalan.text = remainingTimeToNextVakit.toLocaleString(Qt.locale(),"hh:mm:ss")
+        var remainingHours = Math.floor((vakitSeconds - nowSeconds)/60/60) % 24;
+        var remainingMinutes = Math.floor((vakitSeconds - nowSeconds)/60) % 60;
+        var remainingSeconds = (vakitSeconds - nowSeconds) % 60;
+
+        mainForm.txt_kalan.text = (remainingHours < 10 ? "0" : "") + remainingHours + ":"
+                + (remainingMinutes < 10 ? "0" : "") + remainingMinutes + ":"
+                + (remainingSeconds < 10 ? "0" : "") + remainingSeconds
         mainForm.txt_kalanIsim.text = getVakitName(i)
 
         // Colorize current vakit
         for(var k=0; k < mainForm.timesTxts.length; k++) {
-            if (i === 6) {
-                mainForm.timesTxts[0].color = "#00ff00";
-                mainForm.timesLbls[0].color = "#00ff00";
-                break
-            }
-
-            if (k === i) {
-                mainForm.timesTxts[k].color = "#00ff00";
-                mainForm.timesLbls[k].color = "#00ff00";
-            } else {
-                mainForm.timesTxts[k].color = "#ffffff";
-                mainForm.timesLbls[k].color = "#ffffff";
-            }
+            mainForm.timesTxts[k].color = "#ffffff";
+            mainForm.timesLbls[k].color = "#ffffff";
         }
+        mainForm.timesTxts[i%6].color = "#00ff00";
+        mainForm.timesLbls[i%6].color = "#00ff00";
+
         if (mainForm.txt_kalan.text.split(':')[0] === "00"
                 && mainForm.txt_kalan.text.split(':')[1] === "15"
                 && !warned) {
