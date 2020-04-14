@@ -4,10 +4,8 @@
         <file>qtquickcontrols2.conf</file>
         <file>img/back_icon.png</file>
         <file>img/settings_icon.png</file>
-        <file>data/places.json</file>
         <file>ui/MainForm.ui.qml</file>
         <file>ui/Settings.ui.qml</file>
-        <file>praytimes.js</file>
         <file>icon/128.png</file>
         <file>sound/warn.wav</file>
     </qresource>
