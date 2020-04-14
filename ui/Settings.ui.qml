@@ -6,11 +6,11 @@ Rectangle {
 
     width: 200
     height: 290
-    color: "#000000"
+    color: "#111111"
+    property alias btn_save: btn_save
     property alias background: background
 
     property alias sli_saydamlik: sli_saydamlik
-    property alias cb_yazsaati: cb_yazsaati
     property alias cmb_districts: cmb_districts
     property alias sb_warnMin: sb_warnMin
     property alias cmb_cities: cmb_cities
@@ -73,7 +73,7 @@ Rectangle {
     Text {
         id: lbl_saydamlik
         x: 12
-        y: 215
+        y: 178
         color: "#ffffff"
         text: qsTr("Arkaplan Saydamlığı:")
         font.pixelSize: 12
@@ -82,20 +82,12 @@ Rectangle {
     Slider {
         id: sli_saydamlik
         x: 12
-        y: 234
+        y: 197
         width: 176
         height: 24
         to: 255
         stepSize: 1
-        value: 180
-    }
-
-    CheckBox {
-        id: cb_yazsaati
-        x: 6
-        y: 175
-        text: qsTr("Yaz Saatini Uygula")
-        font.pixelSize: 12
+        value: 255
     }
 
     Text {
@@ -191,10 +183,6 @@ Rectangle {
         font.pixelSize: 11
 
         MouseArea {
-            anchors.rightMargin: 0
-            anchors.bottomMargin: 3
-            anchors.leftMargin: 0
-            anchors.topMargin: -3
             anchors.fill: parent
             cursorShape: lbl_info.hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor
             acceptedButtons: Qt.NoButton
@@ -211,12 +199,21 @@ Rectangle {
         anchors.horizontalCenterOffset: 0
         anchors.horizontalCenter: parent.horizontalCenter
     }
+
+    Button {
+        id: btn_save
+        x: 10
+        y: 228
+        width: 180
+        height: 32
+        text: qsTr("Kaydet")
+        enabled: cmb_districts.model ? cmb_districts.model.length > 0 : false
+    }
 }
 
-
-
-
-/*##^## Designer {
+/*##^##
+Designer {
     D{i:4;anchors_height:100;anchors_width:100}
 }
- ##^##*/
+##^##*/
+
