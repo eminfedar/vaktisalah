@@ -13,6 +13,7 @@ Window {
     color: "#00000000"
 
     title: "Vakt-i Salah"
+
     flags: Qt.FramelessWindowHint | Qt.Window
 
     property string settingsPath: "settings.json";

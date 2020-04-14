@@ -6,7 +6,7 @@
         <file>img/settings_icon.png</file>
         <file>ui/MainForm.ui.qml</file>
         <file>ui/Settings.ui.qml</file>
-        <file>icon/128.png</file>
         <file>sound/warn.wav</file>
+        <file>icon/vaktisalah.png</file>
     </qresource>
 </RCC>

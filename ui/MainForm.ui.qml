@@ -7,6 +7,7 @@ Rectangle {
     width: 200
     height: 290
     color: "#090909"
+
     property alias txt_failed: txt_failed
     property alias rct_updateNeed: rct_updateNeed
     property alias btn_updateTimes: btn_updateTimes

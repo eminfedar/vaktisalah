@@ -7,6 +7,7 @@ Rectangle {
     width: 200
     height: 290
     color: "#111111"
+
     property alias btn_save: btn_save
     property alias background: background
 

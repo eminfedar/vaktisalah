@@ -31,7 +31,7 @@ void addSysTrayIcon(QQmlApplicationEngine* engine) {
 
         QSystemTrayIcon *trayIcon = new QSystemTrayIcon(root);
         trayIcon->setContextMenu(trayIconMenu);
-        trayIcon->setIcon(QIcon(":/icon/128.png"));
+        trayIcon->setIcon(QIcon(":/icon/vaktisalah.png"));
         trayIcon->show();
         trayIcon->connect(trayIcon, &QSystemTrayIcon::activated, [=](QSystemTrayIcon::ActivationReason reason){
             if ( reason == QSystemTrayIcon::Trigger || reason == QSystemTrayIcon::DoubleClick){
@@ -60,10 +60,10 @@ int main(int argc, char *argv[])
                       "color: #BBBBBB;"
                       "background-color: #393939;"
                       "}");
-    app.setWindowIcon(QIcon(":/icon/128.png"));
+    app.setWindowIcon(QIcon(":/icon/vaktisalah.png"));
 
     QQmlApplicationEngine engine;
-    engine.rootContext()->setContextProperty("iconTray", QIcon(":/icon/128.png"));
+    engine.rootContext()->setContextProperty("iconTray", QIcon(":/icon/vaktisalah.png"));
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
     addSysTrayIcon(&engine);
