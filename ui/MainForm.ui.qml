@@ -44,6 +44,8 @@ Rectangle {
         width: 72
         color: "#ffffff"
         text: times[0]
+        anchors.right: rct_border.right
+        anchors.rightMargin: 7
         horizontalAlignment: Text.AlignRight
         font.pixelSize: 14
     }
@@ -55,6 +57,8 @@ Rectangle {
         width: 72
         color: "#ffffff"
         text: times[1]
+        anchors.right: rct_border.right
+        anchors.rightMargin: 7
         horizontalAlignment: Text.AlignRight
         font.pixelSize: 14
     }
@@ -66,6 +70,8 @@ Rectangle {
         width: 72
         color: "#ffffff"
         text: times[2]
+        anchors.right: rct_border.right
+        anchors.rightMargin: 7
         horizontalAlignment: Text.AlignRight
         font.pixelSize: 14
     }
@@ -77,6 +83,8 @@ Rectangle {
         width: 72
         color: "#ffffff"
         text: times[3]
+        anchors.right: rct_border.right
+        anchors.rightMargin: 7
         horizontalAlignment: Text.AlignRight
         font.pixelSize: 14
     }
@@ -88,6 +96,8 @@ Rectangle {
         width: 72
         color: "#ffffff"
         text: times[4]
+        anchors.right: rct_border.right
+        anchors.rightMargin: 7
         horizontalAlignment: Text.AlignRight
         font.pixelSize: 14
     }
@@ -99,16 +109,19 @@ Rectangle {
         width: 72
         color: "#ffffff"
         text: times[5]
+        anchors.right: rct_border.right
+        anchors.rightMargin: 7
         horizontalAlignment: Text.AlignRight
         font.pixelSize: 14
     }
 
     Text {
         id: lbl_imsak
-        x: 17
         y: 80
         color: "#ffffff"
         text: qsTr("İmsak")
+        anchors.left: rct_border.left
+        anchors.leftMargin: 7
         font.pixelSize: 14
     }
 
@@ -118,6 +131,8 @@ Rectangle {
         y: 126
         color: "#ffffff"
         text: qsTr("Öğle")
+        anchors.left: rct_border.left
+        anchors.leftMargin: 7
         font.pixelSize: 14
     }
 
@@ -127,6 +142,8 @@ Rectangle {
         y: 149
         color: "#ffffff"
         text: qsTr("İkindi")
+        anchors.left: rct_border.left
+        anchors.leftMargin: 7
         font.pixelSize: 14
     }
 
@@ -137,6 +154,8 @@ Rectangle {
         height: 20
         color: "#ffffff"
         text: qsTr("Akşam")
+        anchors.left: rct_border.left
+        anchors.leftMargin: 7
         font.pixelSize: 14
     }
 
@@ -146,6 +165,8 @@ Rectangle {
         y: 195
         color: "#ffffff"
         text: qsTr("Yatsı")
+        anchors.left: rct_border.left
+        anchors.leftMargin: 7
         font.pixelSize: 14
     }
 
@@ -155,6 +176,8 @@ Rectangle {
         y: 103
         color: "#ffffff"
         text: qsTr("Güneş")
+        anchors.left: rct_border.left
+        anchors.leftMargin: 7
         font.pixelSize: 14
     }
 
@@ -267,8 +290,8 @@ Rectangle {
         height: 12
         color: "#ffffff"
         text: qsTr("-")
-        anchors.left: parent.left
-        anchors.leftMargin: 11
+        anchors.left: rct_border1.left
+        anchors.leftMargin: 0
         font.pixelSize: 12
         horizontalAlignment: Text.AlignLeft
     }
@@ -281,8 +304,8 @@ Rectangle {
         height: 12
         color: "#00ff00"
         text: qsTr("-")
-        anchors.right: parent.right
-        anchors.rightMargin: 11
+        anchors.right: rct_border1.right
+        anchors.rightMargin: 0
         font.pixelSize: 12
         horizontalAlignment: Text.AlignRight
     }
@@ -338,7 +361,7 @@ Rectangle {
 
 /*##^##
 Designer {
-    D{i:21;anchors_height:100;anchors_width:100}D{i:19;anchors_width:24;anchors_x:168}
+    D{i:7;anchors_x:17}D{i:21;anchors_height:100;anchors_width:100}D{i:19;anchors_width:24;anchors_x:168}
 D{i:23;anchors_x:17}D{i:24;invisible:true}
 }
 ##^##*/

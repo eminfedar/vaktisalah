@@ -40,6 +40,8 @@ Rectangle {
         height: 24
         color: ma_back.containsMouse ? ma_back.pressed ? "00000a" : "#00402e" : "#00200e"
         radius: 7
+        anchors.right: parent.right
+        anchors.rightMargin: 8
         border.color: ma_back.containsMouse ? "#ff00692e" : "#aa00692e"
 
         Image {
@@ -77,6 +79,8 @@ Rectangle {
         y: 178
         color: "#ffffff"
         text: qsTr("Arkaplan Saydamlığı:")
+        anchors.left: rct_border.left
+        anchors.leftMargin: 1
         font.pixelSize: 12
     }
 
@@ -89,6 +93,8 @@ Rectangle {
         to: 255
         stepSize: 1
         value: 255
+        anchors.left: rct_border.left
+        anchors.leftMargin: 1
     }
 
     Text {
@@ -97,6 +103,8 @@ Rectangle {
         y: 117
         color: "#ffffff"
         text: "İlçe:"
+        anchors.left: rct_border.left
+        anchors.leftMargin: 1
         font.pixelSize: 12
     }
 
@@ -106,6 +114,8 @@ Rectangle {
         y: 112
         width: 120
         height: 26
+        anchors.right: rct_border.right
+        anchors.rightMargin: 2
         font.pixelSize: 13
     }
 
@@ -118,6 +128,8 @@ Rectangle {
         from: 1
         value: 15
         to: 60
+        anchors.right: rct_border.right
+        anchors.rightMargin: 2
     }
 
     Text {
@@ -126,6 +138,8 @@ Rectangle {
         y: 149
         color: "#ffffff"
         text: qsTr("Dakika kala uyar:")
+        anchors.left: rct_border.left
+        anchors.leftMargin: 1
         font.pixelSize: 12
     }
 
@@ -135,6 +149,8 @@ Rectangle {
         y: 85
         color: "#ffffff"
         text: qsTr("Şehir:")
+        anchors.left: rct_border.left
+        anchors.leftMargin: 1
         font.pixelSize: 12
     }
 
@@ -144,15 +160,18 @@ Rectangle {
         y: 80
         width: 120
         height: 26
+        anchors.right: rct_border.right
+        anchors.rightMargin: 2
         font.pixelSize: 13
     }
 
     Text {
         id: lbl_countries
-        x: 12
         y: 53
         color: "#ffffff"
         text: qsTr("Ülke:")
+        anchors.left: rct_border.left
+        anchors.leftMargin: 1
         font.pixelSize: 12
     }
 
@@ -162,6 +181,8 @@ Rectangle {
         y: 48
         width: 120
         height: 26
+        anchors.right: rct_border.right
+        anchors.rightMargin: 2
         font.pixelSize: 13
     }
 
@@ -208,13 +229,14 @@ Rectangle {
         width: 180
         height: 32
         text: qsTr("Kaydet")
+        anchors.horizontalCenter: parent.horizontalCenter
         enabled: cmb_districts.model ? cmb_districts.model.length > 0 : false
     }
 }
 
 /*##^##
 Designer {
-    D{i:4;anchors_height:100;anchors_width:100}
+    D{i:4;anchors_height:100;anchors_width:100}D{i:14;anchors_x:12}
 }
 ##^##*/
 
