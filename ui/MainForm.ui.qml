@@ -70,7 +70,7 @@ Rectangle {
         color: "#ffffff"
         text: "Ikindi'ye"
         anchors.horizontalCenterOffset: 0
-        font.pixelSize: 17
+        font.pixelSize: 18
         anchors.horizontalCenter: parent.horizontalCenter
         horizontalAlignment: Text.AlignHCenter
     }
@@ -126,7 +126,7 @@ Rectangle {
         anchors.right: rct_vakitler.right
         anchors.rightMargin: 7
         fontSizeMode: Text.HorizontalFit
-        font.pixelSize: 12
+        font.pixelSize: 13
         horizontalAlignment: Text.AlignRight
     }
 
@@ -147,7 +147,7 @@ Rectangle {
             y: 30
             color: "#ffffff"
             text: qsTr("Güneş")
-            font.pixelSize: 14
+            font.pixelSize: 15
         }
 
         Text {
@@ -156,7 +156,7 @@ Rectangle {
             y: 122
             color: "#ffffff"
             text: qsTr("Yatsı")
-            font.pixelSize: 14
+            font.pixelSize: 15
         }
 
         Text {
@@ -166,7 +166,7 @@ Rectangle {
             height: 20
             color: "#ffffff"
             text: qsTr("Akşam")
-            font.pixelSize: 14
+            font.pixelSize: 15
         }
 
         Text {
@@ -175,7 +175,7 @@ Rectangle {
             y: 76
             color: "#ffffff"
             text: qsTr("İkindi")
-            font.pixelSize: 14
+            font.pixelSize: 15
         }
 
         Text {
@@ -184,7 +184,7 @@ Rectangle {
             y: 53
             color: "#ffffff"
             text: qsTr("Öğle")
-            font.pixelSize: 14
+            font.pixelSize: 15
         }
 
         Text {
@@ -193,7 +193,7 @@ Rectangle {
             y: 7
             color: "#ffffff"
             text: qsTr("İmsak")
-            font.pixelSize: 14
+            font.pixelSize: 15
         }
 
         Text {
@@ -206,7 +206,7 @@ Rectangle {
             anchors.right: parent.right
             anchors.rightMargin: 7
             horizontalAlignment: Text.AlignRight
-            font.pixelSize: 14
+            font.pixelSize: 15
         }
 
         Text {
@@ -219,7 +219,7 @@ Rectangle {
             anchors.right: parent.right
             anchors.rightMargin: 7
             horizontalAlignment: Text.AlignRight
-            font.pixelSize: 14
+            font.pixelSize: 15
         }
 
         Text {
@@ -232,7 +232,7 @@ Rectangle {
             anchors.right: parent.right
             anchors.rightMargin: 7
             horizontalAlignment: Text.AlignRight
-            font.pixelSize: 14
+            font.pixelSize: 15
         }
 
         Text {
@@ -245,7 +245,7 @@ Rectangle {
             anchors.right: parent.right
             anchors.rightMargin: 7
             horizontalAlignment: Text.AlignRight
-            font.pixelSize: 14
+            font.pixelSize: 15
         }
 
         Text {
@@ -258,7 +258,7 @@ Rectangle {
             anchors.right: parent.right
             anchors.rightMargin: 7
             horizontalAlignment: Text.AlignRight
-            font.pixelSize: 14
+            font.pixelSize: 15
         }
 
         Text {
@@ -271,7 +271,7 @@ Rectangle {
             anchors.right: parent.right
             anchors.rightMargin: 7
             horizontalAlignment: Text.AlignRight
-            font.pixelSize: 14
+            font.pixelSize: 15
         }
 
         Rectangle {
@@ -311,7 +311,7 @@ Rectangle {
             anchors.horizontalCenter: parent.horizontalCenter
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
-            font.pixelSize: 14
+            font.pixelSize: 15
         }
 
         Button {
@@ -336,7 +336,7 @@ Rectangle {
             visible: false
             font.bold: false
             anchors.horizontalCenterOffset: 0
-            font.pixelSize: 14
+            font.pixelSize: 15
             wrapMode: Text.WordWrap
             anchors.horizontalCenter: parent.horizontalCenter
             horizontalAlignment: Text.AlignHCenter
@@ -352,7 +352,7 @@ Rectangle {
         text: qsTr("27 Ramazan 1453")
         anchors.right: rct_vakitler.right
         anchors.rightMargin: 7
-        font.pixelSize: 12
+        font.pixelSize: 13
         horizontalAlignment: Text.AlignHCenter
     }
 
@@ -365,7 +365,7 @@ Rectangle {
         anchors.left: rct_vakitler.left
         anchors.leftMargin: 7
         horizontalAlignment: Text.AlignLeft
-        font.pixelSize: 12
+        font.pixelSize: 13
         fontSizeMode: Text.HorizontalFit
     }
 
@@ -377,7 +377,7 @@ Rectangle {
         text: qsTr("Hicri:")
         anchors.leftMargin: 7
         horizontalAlignment: Text.AlignLeft
-        font.pixelSize: 12
+        font.pixelSize: 13
         anchors.left: rct_vakitler.left
         fontSizeMode: Text.HorizontalFit
     }

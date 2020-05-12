@@ -29,7 +29,7 @@ Rectangle {
         anchors.horizontalCenter: parent.horizontalCenter
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
-        font.pixelSize: 14
+        font.pixelSize: 15
     }
 
     Rectangle {
@@ -81,7 +81,7 @@ Rectangle {
         text: qsTr("Arkaplan Saydamlığı:")
         anchors.left: rct_border.left
         anchors.leftMargin: 1
-        font.pixelSize: 12
+        font.pixelSize: 13
     }
 
     Slider {
@@ -105,7 +105,7 @@ Rectangle {
         text: "İlçe:"
         anchors.left: rct_border.left
         anchors.leftMargin: 1
-        font.pixelSize: 12
+        font.pixelSize: 13
     }
 
     ComboBox {
@@ -121,9 +121,9 @@ Rectangle {
 
     SpinBox {
         id: sb_warnMin
-        x: 108
+        x: 114
         y: 144
-        width: 80
+        width: 74
         height: 28
         from: 1
         value: 15
@@ -140,7 +140,7 @@ Rectangle {
         text: qsTr("Dakika kala uyar:")
         anchors.left: rct_border.left
         anchors.leftMargin: 1
-        font.pixelSize: 12
+        font.pixelSize: 13
     }
 
     Text {
@@ -151,7 +151,7 @@ Rectangle {
         text: qsTr("Şehir:")
         anchors.left: rct_border.left
         anchors.leftMargin: 1
-        font.pixelSize: 12
+        font.pixelSize: 13
     }
 
     ComboBox {
@@ -172,7 +172,7 @@ Rectangle {
         text: qsTr("Ülke:")
         anchors.left: rct_border.left
         anchors.leftMargin: 1
-        font.pixelSize: 12
+        font.pixelSize: 13
     }
 
     ComboBox {
