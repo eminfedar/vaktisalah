@@ -5,7 +5,7 @@ Rectangle {
     id: background
 
     width: 200
-    height: 290
+    height: 300
     color: "#090909"
 
     property alias txt_failed: txt_failed
@@ -38,155 +38,11 @@ Rectangle {
     property var timesLbls: [lbl_imsak, lbl_gunes, lbl_ogle, lbl_ikindi, lbl_aksam, lbl_yatsi]
 
     Text {
-        id: txt_imsak
-        x: 110
-        y: 80
-        width: 72
-        color: "#ffffff"
-        text: times[0]
-        anchors.right: rct_border.right
-        anchors.rightMargin: 7
-        horizontalAlignment: Text.AlignRight
-        font.pixelSize: 14
-    }
-
-    Text {
-        id: txt_gunes
-        x: 110
-        y: 103
-        width: 72
-        color: "#ffffff"
-        text: times[1]
-        anchors.right: rct_border.right
-        anchors.rightMargin: 7
-        horizontalAlignment: Text.AlignRight
-        font.pixelSize: 14
-    }
-
-    Text {
-        id: txt_ogle
-        x: 110
-        y: 126
-        width: 72
-        color: "#ffffff"
-        text: times[2]
-        anchors.right: rct_border.right
-        anchors.rightMargin: 7
-        horizontalAlignment: Text.AlignRight
-        font.pixelSize: 14
-    }
-
-    Text {
-        id: txt_ikindi
-        x: 110
-        y: 149
-        width: 72
-        color: "#ffffff"
-        text: times[3]
-        anchors.right: rct_border.right
-        anchors.rightMargin: 7
-        horizontalAlignment: Text.AlignRight
-        font.pixelSize: 14
-    }
-
-    Text {
-        id: txt_aksam
-        x: 110
-        y: 172
-        width: 72
-        color: "#ffffff"
-        text: times[4]
-        anchors.right: rct_border.right
-        anchors.rightMargin: 7
-        horizontalAlignment: Text.AlignRight
-        font.pixelSize: 14
-    }
-
-    Text {
-        id: txt_yatsi
-        x: 110
-        y: 195
-        width: 72
-        color: "#ffffff"
-        text: times[5]
-        anchors.right: rct_border.right
-        anchors.rightMargin: 7
-        horizontalAlignment: Text.AlignRight
-        font.pixelSize: 14
-    }
-
-    Text {
-        id: lbl_imsak
-        y: 80
-        color: "#ffffff"
-        text: qsTr("İmsak")
-        anchors.left: rct_border.left
-        anchors.leftMargin: 7
-        font.pixelSize: 14
-    }
-
-    Text {
-        id: lbl_ogle
-        x: 17
-        y: 126
-        color: "#ffffff"
-        text: qsTr("Öğle")
-        anchors.left: rct_border.left
-        anchors.leftMargin: 7
-        font.pixelSize: 14
-    }
-
-    Text {
-        id: lbl_ikindi
-        x: 17
-        y: 149
-        color: "#ffffff"
-        text: qsTr("İkindi")
-        anchors.left: rct_border.left
-        anchors.leftMargin: 7
-        font.pixelSize: 14
-    }
-
-    Text {
-        id: lbl_aksam
-        x: 17
-        y: 172
-        height: 20
-        color: "#ffffff"
-        text: qsTr("Akşam")
-        anchors.left: rct_border.left
-        anchors.leftMargin: 7
-        font.pixelSize: 14
-    }
-
-    Text {
-        id: lbl_yatsi
-        x: 17
-        y: 195
-        color: "#ffffff"
-        text: qsTr("Yatsı")
-        anchors.left: rct_border.left
-        anchors.leftMargin: 7
-        font.pixelSize: 14
-    }
-
-    Text {
-        id: lbl_gunes
-        x: 17
-        y: 103
-        color: "#ffffff"
-        text: qsTr("Güneş")
-        anchors.left: rct_border.left
-        anchors.leftMargin: 7
-        font.pixelSize: 14
-    }
-
-    Text {
         id: txt_sehir
         x: 58
-        y: 10
+        y: 8
         color: "#ffffff"
-        text: qsTr("-")
+        text: qsTr("Yalova")
         anchors.horizontalCenterOffset: 0
         anchors.horizontalCenter: parent.horizontalCenter
         horizontalAlignment: Text.AlignHCenter
@@ -196,11 +52,11 @@ Rectangle {
     Text {
         id: txt_ulke
         x: 79
-        y: 34
+        y: 30
         width: 42
         height: 12
         color: "#cccccc"
-        text: qsTr("-")
+        text: qsTr("Turkiye")
         anchors.horizontalCenterOffset: 0
         anchors.horizontalCenter: parent.horizontalCenter
         horizontalAlignment: Text.AlignHCenter
@@ -210,47 +66,24 @@ Rectangle {
     Text {
         id: txt_kalanIsim
         x: 62
-        y: 231
+        y: 242
         color: "#ffffff"
-        text: qsTr("-")
+        text: "Ikindi'ye"
         anchors.horizontalCenterOffset: 0
-        font.pixelSize: 18
+        font.pixelSize: 17
         anchors.horizontalCenter: parent.horizontalCenter
         horizontalAlignment: Text.AlignHCenter
     }
 
     Text {
         id: txt_kalan
-        x: 55
-        y: 252
+        y: 264
         color: "#00ff00"
-        text: qsTr("-")
-        font.pixelSize: 22
+        text: qsTr("00:23:15")
+        font.pixelSize: 21
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.horizontalCenterOffset: 0
         horizontalAlignment: Text.AlignHCenter
-    }
-
-    Rectangle {
-        id: rct_border
-        x: 0
-        y: 221
-        width: 179
-        height: 1
-        color: "#ee00692e"
-        anchors.horizontalCenterOffset: 0
-        anchors.horizontalCenter: parent.horizontalCenter
-    }
-
-    Rectangle {
-        id: rct_border1
-        x: -8
-        y: 73
-        width: 179
-        height: 1
-        color: "#ee00692e"
-        anchors.horizontalCenterOffset: 0
-        anchors.horizontalCenter: parent.horizontalCenter
     }
 
     Rectangle {
@@ -285,37 +118,189 @@ Rectangle {
 
     Text {
         id: txt_miladiTakvim
-        y: 53
-        width: 67
+        x: 95
+        y: 50
         height: 12
         color: "#ffffff"
-        text: qsTr("-")
-        anchors.left: rct_border1.left
-        anchors.leftMargin: 0
-        font.pixelSize: 12
-        horizontalAlignment: Text.AlignLeft
-    }
-
-    Text {
-        id: txt_hicriTakvim
-        x: 115
-        y: 53
-        width: 67
-        height: 12
-        color: "#00ff00"
-        text: qsTr("-")
-        anchors.right: rct_border1.right
-        anchors.rightMargin: 0
+        text: qsTr("15 Temmuz 2020")
+        anchors.right: rct_vakitler.right
+        anchors.rightMargin: 7
+        fontSizeMode: Text.HorizontalFit
         font.pixelSize: 12
         horizontalAlignment: Text.AlignRight
     }
 
     Rectangle {
+        id: rct_vakitler
+        y: 88
+        height: 148
+        color: "#00000000"
+        border.color: "#00000000"
+        anchors.left: parent.left
+        anchors.leftMargin: 8
+        anchors.right: parent.right
+        anchors.rightMargin: 8
+
+        Text {
+            id: lbl_gunes
+            x: 7
+            y: 30
+            color: "#ffffff"
+            text: qsTr("Güneş")
+            font.pixelSize: 14
+        }
+
+        Text {
+            id: lbl_yatsi
+            x: 7
+            y: 122
+            color: "#ffffff"
+            text: qsTr("Yatsı")
+            font.pixelSize: 14
+        }
+
+        Text {
+            id: lbl_aksam
+            x: 7
+            y: 99
+            height: 20
+            color: "#ffffff"
+            text: qsTr("Akşam")
+            font.pixelSize: 14
+        }
+
+        Text {
+            id: lbl_ikindi
+            x: 7
+            y: 76
+            color: "#ffffff"
+            text: qsTr("İkindi")
+            font.pixelSize: 14
+        }
+
+        Text {
+            id: lbl_ogle
+            x: 7
+            y: 53
+            color: "#ffffff"
+            text: qsTr("Öğle")
+            font.pixelSize: 14
+        }
+
+        Text {
+            id: lbl_imsak
+            x: 7
+            y: 7
+            color: "#ffffff"
+            text: qsTr("İmsak")
+            font.pixelSize: 14
+        }
+
+        Text {
+            id: txt_yatsi
+            x: 100
+            y: 122
+            width: 72
+            color: "#ffffff"
+            text: times[5]
+            anchors.right: parent.right
+            anchors.rightMargin: 7
+            horizontalAlignment: Text.AlignRight
+            font.pixelSize: 14
+        }
+
+        Text {
+            id: txt_aksam
+            x: 100
+            y: 99
+            width: 72
+            color: "#ffffff"
+            text: times[4]
+            anchors.right: parent.right
+            anchors.rightMargin: 7
+            horizontalAlignment: Text.AlignRight
+            font.pixelSize: 14
+        }
+
+        Text {
+            id: txt_ikindi
+            x: 100
+            y: 76
+            width: 72
+            color: "#ffffff"
+            text: times[3]
+            anchors.right: parent.right
+            anchors.rightMargin: 7
+            horizontalAlignment: Text.AlignRight
+            font.pixelSize: 14
+        }
+
+        Text {
+            id: txt_ogle
+            x: 100
+            y: 53
+            width: 72
+            color: "#ffffff"
+            text: times[2]
+            anchors.right: parent.right
+            anchors.rightMargin: 7
+            horizontalAlignment: Text.AlignRight
+            font.pixelSize: 14
+        }
+
+        Text {
+            id: txt_gunes
+            x: 100
+            y: 30
+            width: 72
+            color: "#ffffff"
+            text: times[1]
+            anchors.right: parent.right
+            anchors.rightMargin: 7
+            horizontalAlignment: Text.AlignRight
+            font.pixelSize: 14
+        }
+
+        Text {
+            id: txt_imsak
+            x: 100
+            y: 7
+            width: 72
+            color: "#ffffff"
+            text: times[0]
+            anchors.right: parent.right
+            anchors.rightMargin: 7
+            horizontalAlignment: Text.AlignRight
+            font.pixelSize: 14
+        }
+
+        Rectangle {
+            id: rct_border
+            height: 1
+            color: "#ee00692e"
+            anchors.top: parent.top
+            anchors.left: parent.left
+            anchors.right: parent.right
+        }
+
+        Rectangle {
+            id: rct_border1
+            x: 9
+            y: -6
+            height: 1
+            color: "#ee00692e"
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 0
+            anchors.right: parent.right
+            anchors.left: parent.left
+        }
+    }
+
+    Rectangle {
         id: rct_updateNeed
-        width: 200
-        height: 290
         enabled: visible
         color: "#111111"
+        anchors.fill: parent
         visible: false
 
         Text {
@@ -357,12 +342,52 @@ Rectangle {
             horizontalAlignment: Text.AlignHCenter
         }
     }
+
+    Text {
+        id: txt_hicriTakvim
+        x: 91
+        y: 68
+        height: 12
+        color: "#00ff00"
+        text: qsTr("27 Ramazan 1453")
+        anchors.right: rct_vakitler.right
+        anchors.rightMargin: 7
+        font.pixelSize: 12
+        horizontalAlignment: Text.AlignHCenter
+    }
+
+    Text {
+        id: lbl_miladi
+        y: 50
+        height: 12
+        color: "#ffffff"
+        text: qsTr("Miladi:")
+        anchors.left: rct_vakitler.left
+        anchors.leftMargin: 7
+        horizontalAlignment: Text.AlignLeft
+        font.pixelSize: 12
+        fontSizeMode: Text.HorizontalFit
+    }
+
+    Text {
+        id: lbl_hicri
+        y: 68
+        height: 12
+        color: "#00ff00"
+        text: qsTr("Hicri:")
+        anchors.leftMargin: 7
+        horizontalAlignment: Text.AlignLeft
+        font.pixelSize: 12
+        anchors.left: rct_vakitler.left
+        fontSizeMode: Text.HorizontalFit
+    }
 }
 
 /*##^##
 Designer {
-    D{i:7;anchors_x:17}D{i:21;anchors_height:100;anchors_width:100}D{i:19;anchors_width:24;anchors_x:168}
-D{i:23;anchors_x:17}D{i:24;invisible:true}
+    D{i:7;anchors_height:100;anchors_width:100}D{i:5;anchors_width:24;anchors_x:168}D{i:8;anchors_x:55}
+D{i:22;anchors_width:200}D{i:23;anchors_width:200}D{i:9;anchors_height:290;anchors_width:200}
+D{i:28;anchors_y:152}D{i:29;anchors_x:43}D{i:30;anchors_x:43}
 }
 ##^##*/
 

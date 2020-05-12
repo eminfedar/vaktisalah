@@ -8,7 +8,7 @@ import "ui"
 Window {
     id: root
     visible: true
-    width: 210
+    width: 200
     height: 300
     color: "#00000000"
 
@@ -292,10 +292,6 @@ Window {
     MainForm {
         id: mainForm
         radius: 15
-        anchors.rightMargin: 5
-        anchors.leftMargin: 5
-        anchors.bottomMargin: 5
-        anchors.topMargin: 5
         anchors.fill: parent
         visible: true
     }
@@ -303,10 +299,6 @@ Window {
     Settings {
         id: settingsForm
         radius: 15
-        anchors.rightMargin: 5
-        anchors.leftMargin: 5
-        anchors.bottomMargin: 5
-        anchors.topMargin: 5
         anchors.fill: parent
         visible: false
     }
