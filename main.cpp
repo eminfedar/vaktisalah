@@ -9,6 +9,8 @@
 
 void addQMLApis() {
     qmlRegisterType<File>("org.eminfedar.file", 1, 0, "File");
+
+    qputenv("QML_DISABLE_DISTANCEFIELD", "1");
 }
 
 void addSysTrayIcon(QQmlApplicationEngine* engine) {
