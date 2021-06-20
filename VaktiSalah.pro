@@ -35,3 +35,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     file.h
+
+target.path = $${PREFIX}/bin/
+
+INSTALLS += target
