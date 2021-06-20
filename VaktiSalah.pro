@@ -1,4 +1,5 @@
 TEMPLATE = app
+TARGET = vaktisalah
 
 QT += qml quick widgets multimedia
 CONFIG += c++11
