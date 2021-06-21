@@ -188,8 +188,9 @@ Rectangle {
 
     Connections {
         target: lbl_info
-        onLinkActivated: Qt.openUrlExternally(
-                             "https://github.com/eminfedar/vaktisalah")
+        function onLinkActivated() {
+            Qt.openUrlExternally("https://github.com/eminfedar/vaktisalah")
+        }
     }
 
     Text {

@@ -273,7 +273,7 @@ Window {
 
     Connections {
         target: mainForm.ma_settings
-        onClicked: {
+        function onClicked(event) {
             settingsForm.visible = true
             mainForm.visible = false
         }
@@ -281,7 +281,7 @@ Window {
 
     Connections {
         target: settingsForm.ma_back
-        onClicked: {
+        function onClicked(event) {
             settingsForm.visible = false
             mainForm.visible = true
 
@@ -305,7 +305,7 @@ Window {
 
     Connections {
         target: settingsForm.cmb_countries
-        onActivated: {
+        function onActivated() {
             selectedCountry = settingsForm.cmb_countries.currentText
             var selectedCountryID = countries[selectedCountry]["id"]
 
@@ -334,7 +334,7 @@ Window {
 
     Connections {
         target: settingsForm.cmb_cities
-        onActivated: {
+        function onActivated() {
             selectedCity = settingsForm.cmb_cities.currentText
             var selectedCityID = cities[selectedCity]["id"]
 
@@ -359,14 +359,14 @@ Window {
 
     Connections {
         target: settingsForm.cmb_districts
-        onActivated: {
+        function onActivated() {
             selectedDistrict = settingsForm.cmb_districts.currentText
         }
     }
 
     Connections {
         target: settingsForm.sli_saydamlik
-        onValueChanged: {
+        function onMoved() {
             var colorCode = settingsForm.sli_saydamlik.value.toString(16);
             if (colorCode.length === 1) colorCode = "0" + colorCode;
             mainForm.background.color = settingsForm.background.color = "#" + colorCode + "090909"
@@ -397,7 +397,7 @@ Window {
 
     Connections {
         target: settingsForm.btn_save
-        onClicked: {
+        function onClicked(event) {
             saveSettings()
             updatePrayerTimes(function(){
                 saveSettings()
@@ -410,7 +410,7 @@ Window {
 
     Connections {
         target: mainForm.btn_updateTimes
-        onClicked: {
+        function onClicked(event) {
             mainForm.txt_failed.visible = false
             updatePrayerTimes(function(){
                 saveSettings()
