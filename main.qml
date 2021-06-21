@@ -1,8 +1,10 @@
-import QtQuick 2.7
-import QtQuick.Window 2.2
+import QtQuick 2.12
+import QtQuick.Controls 2.15
+import QtQuick.Controls.Universal 2.12
+import QtQuick.Window 2.12
+import QtMultimedia 5.12
+
 import org.eminfedar.file 1.0
-import QtQuick.Controls 2.0
-import QtMultimedia 5.9
 import "ui"
 
 Window {
