@@ -209,6 +209,8 @@ Window {
             root.y = jsonedSettings.y
 
             settingsForm.sli_saydamlik.value = jsonedSettings.backgroundOpacity
+            updateOpacity()
+
             settingsForm.sb_warnMin.value = warnMin = jsonedSettings.warnMin
 
             lastUpdateDate = new Date(jsonedSettings.lastUpdateDate)
@@ -369,10 +371,14 @@ Window {
     Connections {
         target: settingsForm.sli_saydamlik
         function onMoved() {
-            var colorCode = settingsForm.sli_saydamlik.value.toString(16);
-            if (colorCode.length === 1) colorCode = "0" + colorCode;
-            mainForm.background.color = settingsForm.background.color = "#" + colorCode + "090909"
+            updateOpacity()
         }
+    }
+
+    function updateOpacity() {
+        var colorCode = settingsForm.sli_saydamlik.value.toString(16);
+        if (colorCode.length === 1) colorCode = "0" + colorCode;
+        mainForm.background.color = settingsForm.background.color = "#" + colorCode + "090909"
     }
 
     function updatePrayerTimes(callback) {
