@@ -1,6 +1,5 @@
 {
     "id": "com.eminfedar.vaktisalah",
-    "branch": "master",
     "runtime": "org.kde.Platform",
     "runtime-version": "5.15",
     "sdk": "org.kde.Sdk",
@@ -9,33 +8,24 @@
         "--share=network",
         "--socket=pulseaudio",
         "--share=ipc",
-        "--socket=x11",
-        "--filesystem=home"
+        "--socket=x11"
     ],
 
     "modules": [
         {
             "name": "vaktisalah",
             "buildsystem": "qmake",
-            "sources": [ { "type": "git", "url": "https://github.com/eminfedar/vaktisalah.git" } ]
-        },
-        {
-            "name": "vaktisalah-extra",
-            "buildsystem": "simple",
-            "build-commands": [
-                "install -Dm644 com.eminfedar.vaktisalah.svg /app/share/icons/hicolor/scalable/apps/com.eminfedar.vaktisalah.svg",
-                "install -Dm644 com.eminfedar.vaktisalah.desktop /app/share/applications/com.eminfedar.vaktisalah.desktop"
-            ],
-
             "sources": [
                 {
-                    "type": "file",
-                    "path": "com.eminfedar.vaktisalah.desktop"
-                },
-                {
-                    "type": "file",
-                    "path": "com.eminfedar.vaktisalah.svg"
+                    "type": "git",
+                    "url": "https://github.com/eminfedar/vaktisalah.git",
+                    "tag": "v1.4.2"
                 }
+            ],
+            "post-install": [
+                "install -Dm644 export/com.eminfedar.vaktisalah.svg /app/share/icons/hicolor/scalable/apps/com.eminfedar.vaktisalah.svg",
+                "install -Dm644 export/com.eminfedar.vaktisalah.desktop /app/share/applications/com.eminfedar.vaktisalah.desktop",
+                "install -Dm644 export/com.eminfedar.vaktisalah.appdata.xml /app/share/metainfo/com.eminfedar.vaktisalah.appdata.xml"
             ]
         }
     ]
