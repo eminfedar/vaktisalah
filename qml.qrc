@@ -7,6 +7,6 @@
         <file>ui/MainForm.ui.qml</file>
         <file>ui/Settings.ui.qml</file>
         <file>sound/warn.wav</file>
-        <file>icon/vaktisalah.png</file>
+        <file>icons/vaktisalah.png</file>
     </qresource>
 </RCC>
