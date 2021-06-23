@@ -25,7 +25,7 @@ Rectangle {
         x: 89
         y: 12
         color: "#ffffff"
-        text: qsTr("Ayarlar")
+        text: qsTr("Settings")
         anchors.horizontalCenterOffset: 0
         anchors.horizontalCenter: parent.horizontalCenter
         verticalAlignment: Text.AlignVCenter
@@ -79,7 +79,7 @@ Rectangle {
         x: 12
         y: 178
         color: "#ffffff"
-        text: qsTr("Arkaplan Saydamlığı:")
+        text: qsTr("Background Opacity:")
         anchors.left: rct_border.left
         anchors.leftMargin: 1
         font.pixelSize: 13
@@ -103,7 +103,7 @@ Rectangle {
         x: 12
         y: 117
         color: "#ffffff"
-        text: "İlçe:"
+        text: qsTr("District:")
         anchors.left: rct_border.left
         anchors.leftMargin: 1
         font.pixelSize: 13
@@ -138,7 +138,7 @@ Rectangle {
         x: 12
         y: 149
         color: "#ffffff"
-        text: qsTr("Dakika kala uyar:")
+        text: qsTr("Warn before mins:")
         anchors.left: rct_border.left
         anchors.leftMargin: 1
         font.pixelSize: 13
@@ -149,7 +149,7 @@ Rectangle {
         x: 12
         y: 85
         color: "#ffffff"
-        text: qsTr("Şehir:")
+        text: qsTr("City:")
         anchors.left: rct_border.left
         anchors.leftMargin: 1
         font.pixelSize: 13
@@ -170,7 +170,7 @@ Rectangle {
         id: lbl_countries
         y: 53
         color: "#ffffff"
-        text: qsTr("Ülke:")
+        text: qsTr("Country:")
         anchors.left: rct_border.left
         anchors.leftMargin: 1
         font.pixelSize: 13
@@ -230,15 +230,8 @@ Rectangle {
         y: 228
         width: 180
         height: 32
-        text: qsTr("Kaydet")
+        text: qsTr("Save")
         anchors.horizontalCenter: parent.horizontalCenter
         enabled: cmb_districts.model ? cmb_districts.model.length > 0 : false
     }
 }
-
-/*##^##
-Designer {
-    D{i:4;anchors_height:100;anchors_width:100}D{i:14;anchors_x:12}
-}
-##^##*/
-

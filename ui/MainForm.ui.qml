@@ -43,7 +43,7 @@ Rectangle {
         x: 58
         y: 8
         color: "#ffffff"
-        text: qsTr("Yalova")
+        text: "Yalova"
         anchors.horizontalCenterOffset: 0
         anchors.horizontalCenter: parent.horizontalCenter
         horizontalAlignment: Text.AlignHCenter
@@ -57,7 +57,7 @@ Rectangle {
         width: 42
         height: 12
         color: "#cccccc"
-        text: qsTr("Turkiye")
+        text: "Turkiye"
         anchors.horizontalCenterOffset: 0
         anchors.horizontalCenter: parent.horizontalCenter
         horizontalAlignment: Text.AlignHCenter
@@ -80,7 +80,7 @@ Rectangle {
         id: txt_kalan
         y: 264
         color: "#00ff00"
-        text: qsTr("00:23:15")
+        text: "00:23:15"
         font.pixelSize: 21
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.horizontalCenterOffset: 0
@@ -123,7 +123,7 @@ Rectangle {
         y: 50
         height: 12
         color: "#ffffff"
-        text: qsTr("15 Temmuz 2020")
+        text: "15 Temmuz 2020"
         anchors.right: rct_vakitler.right
         anchors.rightMargin: 7
         fontSizeMode: Text.HorizontalFit
@@ -147,7 +147,7 @@ Rectangle {
             x: 7
             y: 30
             color: "#ffffff"
-            text: qsTr("Güneş")
+            text: qsTr("Sunrise")
             font.pixelSize: 15
         }
 
@@ -156,7 +156,7 @@ Rectangle {
             x: 7
             y: 122
             color: "#ffffff"
-            text: qsTr("Yatsı")
+            text: qsTr("Isha")
             font.pixelSize: 15
         }
 
@@ -166,7 +166,7 @@ Rectangle {
             y: 99
             height: 20
             color: "#ffffff"
-            text: qsTr("Akşam")
+            text: qsTr("Maghrib")
             font.pixelSize: 15
         }
 
@@ -175,7 +175,7 @@ Rectangle {
             x: 7
             y: 76
             color: "#ffffff"
-            text: qsTr("İkindi")
+            text: qsTr("Asr")
             font.pixelSize: 15
         }
 
@@ -184,7 +184,7 @@ Rectangle {
             x: 7
             y: 53
             color: "#ffffff"
-            text: qsTr("Öğle")
+            text: qsTr("Dhuhr")
             font.pixelSize: 15
         }
 
@@ -193,7 +193,7 @@ Rectangle {
             x: 7
             y: 7
             color: "#ffffff"
-            text: qsTr("İmsak")
+            text: qsTr("Fajr")
             font.pixelSize: 15
         }
 
@@ -308,7 +308,7 @@ Rectangle {
             y: 71
             width: 145
             color: "#ffffff"
-            text: qsTr("Vakitlerin güncellenmesi için internet gerekli.")
+            text: qsTr("Internet required to update times.")
             anchors.horizontalCenter: parent.horizontalCenter
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
@@ -321,7 +321,7 @@ Rectangle {
             y: 139
             width: 86
             height: 32
-            text: qsTr("Güncelle")
+            text: qsTr("Update")
             anchors.verticalCenterOffset: 20
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.verticalCenter: parent.verticalCenter
@@ -333,7 +333,7 @@ Rectangle {
             y: 208
             width: 145
             color: "#ff0000"
-            text: qsTr("Başarısız!")
+            text: qsTr("Failed!")
             visible: false
             font.bold: false
             anchors.horizontalCenterOffset: 0
@@ -350,7 +350,7 @@ Rectangle {
         y: 68
         height: 12
         color: "#00ff00"
-        text: qsTr("27 Ramazan 1453")
+        text: "27 Ramazan 1453"
         anchors.right: rct_vakitler.right
         anchors.rightMargin: 7
         font.pixelSize: 13
@@ -362,7 +362,7 @@ Rectangle {
         y: 50
         height: 12
         color: "#ffffff"
-        text: qsTr("Miladi:")
+        text: qsTr("Gregorian:")
         anchors.left: rct_vakitler.left
         anchors.leftMargin: 7
         horizontalAlignment: Text.AlignLeft
@@ -375,7 +375,7 @@ Rectangle {
         y: 68
         height: 12
         color: "#00ff00"
-        text: qsTr("Hicri:")
+        text: qsTr("Hijri:")
         anchors.leftMargin: 7
         horizontalAlignment: Text.AlignLeft
         font.pixelSize: 13
@@ -383,12 +383,3 @@ Rectangle {
         fontSizeMode: Text.HorizontalFit
     }
 }
-
-/*##^##
-Designer {
-    D{i:7;anchors_height:100;anchors_width:100}D{i:5;anchors_width:24;anchors_x:168}D{i:8;anchors_x:55}
-D{i:22;anchors_width:200}D{i:23;anchors_width:200}D{i:9;anchors_height:290;anchors_width:200}
-D{i:28;anchors_y:152}D{i:29;anchors_x:43}D{i:30;anchors_x:43}
-}
-##^##*/
-

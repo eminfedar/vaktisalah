@@ -167,17 +167,17 @@ Window {
 
     function getVakitName(i){
         if (i === 0 || i === 6){
-            return "Sabah'a"
+            return qsTr("to Fajr")
         } else if (i === 1){
-            return "Güneş'e"
+            return qsTr("to Sunrise")
         } else if (i === 2){
-            return "Öğle'ye"
+            return qsTr("to Dhuhr")
         } else if (i === 3){
-            return "İkindi'ye"
+            return qsTr("to Asr")
         } else if (i === 4){
-            return "Akşam'a"
+            return qsTr("to Maghrib")
         } else if (i === 5){
-            return "Yatsı'ya"
+            return qsTr("to Isha")
         }
     }
 
@@ -383,6 +383,7 @@ Window {
 
     function updatePrayerTimes(callback) {
         var selectedDistrictID = districts[selectedDistrict]["id"]
+        console.log('ilce:' + selectedDistrictID)
         httpGet("https://ezanvakti.herokuapp.com/vakitler?ilce=" + selectedDistrictID, function(xhr) {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {

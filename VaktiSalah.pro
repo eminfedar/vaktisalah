@@ -39,3 +39,6 @@ HEADERS += \
 target.path = $${PREFIX}/bin/
 
 INSTALLS += target
+
+TRANSLATIONS += translations/vaktisalah.ts \
+    translations/vaktisalah_tr.ts

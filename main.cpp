@@ -6,6 +6,16 @@
 #include <QMenu>
 #include <QQmlContext>
 #include <QDebug>
+#include <QTranslator>
+
+void getTranslations(const QApplication& app) {
+    QTranslator t;
+    if (t.load(":/translations/vaktisalah_" + QLocale::system().name())) {
+        app.installTranslator(&t);
+    } else {
+        qDebug() << "Could not load the translation";
+    }
+}
 
 void addQMLApis() {
     qmlRegisterType<File>("org.eminfedar.file", 1, 0, "File");
@@ -19,11 +29,11 @@ void addSysTrayIcon(QQmlApplicationEngine* engine) {
     {
         root = engine->rootObjects().at(0);
 
-        QAction *restoreAction = new QAction(QObject::tr("Göster / Gizle"), root);
+        QAction *restoreAction = new QAction(QObject::tr("Show / Hide"), root);
         root->connect(restoreAction, &QAction::triggered, [=](){
             root->setProperty("visible", !root->property("visible").toBool());
         });
-        QAction *quitAction = new QAction(QObject::tr("Programdan Çık"), root);
+        QAction *quitAction = new QAction(QObject::tr("Exit"), root);
         root->connect(quitAction, SIGNAL(triggered()), qApp, SLOT(quit()));
 
         QMenu *trayIconMenu = new QMenu();
@@ -69,6 +79,7 @@ int main(int argc, char *argv[])
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
     addSysTrayIcon(&engine);
+    getTranslations(app);
 
     return app.exec();
 }
