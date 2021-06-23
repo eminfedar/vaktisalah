@@ -7,15 +7,7 @@
 #include <QQmlContext>
 #include <QDebug>
 #include <QTranslator>
-
-void getTranslations(const QApplication& app) {
-    QTranslator t;
-    if (t.load(":/translations/vaktisalah_" + QLocale::system().name())) {
-        app.installTranslator(&t);
-    } else {
-        qDebug() << "Could not load the translation";
-    }
-}
+#include <QLocale>
 
 void addQMLApis() {
     qmlRegisterType<File>("org.eminfedar.file", 1, 0, "File");
@@ -57,8 +49,19 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
+    // Get Translations
+    QTranslator t;
+    qDebug() << QLocale::system().name();
+    if (t.load(":/translations/vaktisalah_" + QLocale::system().name())) {
+        app.installTranslator(&t);
+    } else {
+        qDebug() << "Could not load the translation";
+    }
+
+    // Add QML Apis
     addQMLApis();
 
+    // Little Styling
     app.setStyleSheet("QMenu{"
                       "background: #292929;"
                       "color: #FFFFFF;"
@@ -74,12 +77,12 @@ int main(int argc, char *argv[])
                       "}");
     app.setWindowIcon(QIcon(":/icons/vaktisalah.png"));
 
+    // QML Engine
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("iconTray", QIcon(":/icons/vaktisalah.png"));
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
 
     addSysTrayIcon(&engine);
-    getTranslations(app);
 
     return app.exec();
 }

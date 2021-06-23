@@ -9,6 +9,5 @@
         <file>sound/warn.wav</file>
         <file>icons/vaktisalah.png</file>
         <file>translations/vaktisalah_tr.qm</file>
-        <file>translations/vaktisalah_tr.ts</file>
     </qresource>
 </RCC>
