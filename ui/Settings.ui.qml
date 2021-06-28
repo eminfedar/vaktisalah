@@ -30,7 +30,7 @@ Rectangle {
         anchors.horizontalCenter: parent.horizontalCenter
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
-        font.pixelSize: 15
+        font.pointSize: 13
     }
 
     Rectangle {
@@ -82,7 +82,7 @@ Rectangle {
         text: qsTr("Background Opacity:")
         anchors.left: rct_border.left
         anchors.leftMargin: 1
-        font.pixelSize: 13
+        font.pointSize: 10
     }
 
     Slider {
@@ -106,7 +106,7 @@ Rectangle {
         text: qsTr("District:")
         anchors.left: rct_border.left
         anchors.leftMargin: 1
-        font.pixelSize: 13
+        font.pointSize: 10
     }
 
     ComboBox {
@@ -117,14 +117,14 @@ Rectangle {
         height: 26
         anchors.right: rct_border.right
         anchors.rightMargin: 2
-        font.pixelSize: 13
+        font.pointSize: 10
     }
 
     SpinBox {
         id: sb_warnMin
         x: 114
         y: 144
-        width: 74
+        width: 64
         height: 28
         from: 1
         value: 15
@@ -141,7 +141,7 @@ Rectangle {
         text: qsTr("Warn before mins:")
         anchors.left: rct_border.left
         anchors.leftMargin: 1
-        font.pixelSize: 13
+        font.pointSize: 10
     }
 
     Text {
@@ -152,7 +152,7 @@ Rectangle {
         text: qsTr("City:")
         anchors.left: rct_border.left
         anchors.leftMargin: 1
-        font.pixelSize: 13
+        font.pointSize: 10
     }
 
     ComboBox {
@@ -163,7 +163,7 @@ Rectangle {
         height: 26
         anchors.right: rct_border.right
         anchors.rightMargin: 2
-        font.pixelSize: 13
+        font.pointSize: 10
     }
 
     Text {
@@ -173,7 +173,7 @@ Rectangle {
         text: qsTr("Country:")
         anchors.left: rct_border.left
         anchors.leftMargin: 1
-        font.pixelSize: 13
+        font.pointSize: 10
     }
 
     ComboBox {
@@ -184,7 +184,7 @@ Rectangle {
         height: 26
         anchors.right: rct_border.right
         anchors.rightMargin: 2
-        font.pixelSize: 13
+        font.pointSize: 10
     }
 
     Connections {
@@ -204,7 +204,7 @@ Rectangle {
 <a href=\"https://github.com/eminfedar/vaktisalah\">github/vaktisalah</a>"
         anchors.horizontalCenter: parent.horizontalCenter
         horizontalAlignment: Text.AlignHCenter
-        font.pixelSize: 11
+        font.pointSize: 8
 
         MouseArea {
             anchors.fill: parent

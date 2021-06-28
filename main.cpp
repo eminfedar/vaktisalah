@@ -6,6 +6,7 @@
 #include <QMenu>
 #include <QQmlContext>
 #include <QDebug>
+#include <QQuickWindow>
 #include <QTranslator>
 #include <QLocale>
 
@@ -83,6 +84,7 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     engine.rootContext()->setContextProperty("iconTray", QIcon(":/icons/vaktisalah.png"));
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+    QQuickWindow::setTextRenderType(QQuickWindow::NativeTextRendering);
 
     addSysTrayIcon(&engine);
 

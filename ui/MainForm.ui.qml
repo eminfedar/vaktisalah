@@ -47,7 +47,7 @@ Rectangle {
         anchors.horizontalCenterOffset: 0
         anchors.horizontalCenter: parent.horizontalCenter
         horizontalAlignment: Text.AlignHCenter
-        font.pixelSize: 18
+        font.pointSize: 13
     }
 
     Text {
@@ -61,7 +61,7 @@ Rectangle {
         anchors.horizontalCenterOffset: 0
         anchors.horizontalCenter: parent.horizontalCenter
         horizontalAlignment: Text.AlignHCenter
-        font.pixelSize: 11
+        font.pointSize: 8
     }
 
     Text {
@@ -71,7 +71,7 @@ Rectangle {
         color: "#ffffff"
         text: "Ikindi'ye"
         anchors.horizontalCenterOffset: 0
-        font.pixelSize: 18
+        font.pointSize: 13
         anchors.horizontalCenter: parent.horizontalCenter
         horizontalAlignment: Text.AlignHCenter
     }
@@ -81,7 +81,7 @@ Rectangle {
         y: 264
         color: "#00ff00"
         text: "00:23:15"
-        font.pixelSize: 21
+        font.pointSize: 15
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.horizontalCenterOffset: 0
         horizontalAlignment: Text.AlignHCenter
@@ -127,7 +127,7 @@ Rectangle {
         anchors.right: rct_vakitler.right
         anchors.rightMargin: 7
         fontSizeMode: Text.HorizontalFit
-        font.pixelSize: 13
+        font.pointSize: 9
         horizontalAlignment: Text.AlignRight
     }
 
@@ -148,7 +148,6 @@ Rectangle {
             y: 30
             color: "#ffffff"
             text: qsTr("Sunrise")
-            font.pixelSize: 15
         }
 
         Text {
@@ -157,7 +156,6 @@ Rectangle {
             y: 122
             color: "#ffffff"
             text: qsTr("Isha")
-            font.pixelSize: 15
         }
 
         Text {
@@ -167,7 +165,6 @@ Rectangle {
             height: 20
             color: "#ffffff"
             text: qsTr("Maghrib")
-            font.pixelSize: 15
         }
 
         Text {
@@ -176,7 +173,6 @@ Rectangle {
             y: 76
             color: "#ffffff"
             text: qsTr("Asr")
-            font.pixelSize: 15
         }
 
         Text {
@@ -185,7 +181,6 @@ Rectangle {
             y: 53
             color: "#ffffff"
             text: qsTr("Dhuhr")
-            font.pixelSize: 15
         }
 
         Text {
@@ -194,7 +189,6 @@ Rectangle {
             y: 7
             color: "#ffffff"
             text: qsTr("Fajr")
-            font.pixelSize: 15
         }
 
         Text {
@@ -207,7 +201,6 @@ Rectangle {
             anchors.right: parent.right
             anchors.rightMargin: 7
             horizontalAlignment: Text.AlignRight
-            font.pixelSize: 15
         }
 
         Text {
@@ -220,7 +213,6 @@ Rectangle {
             anchors.right: parent.right
             anchors.rightMargin: 7
             horizontalAlignment: Text.AlignRight
-            font.pixelSize: 15
         }
 
         Text {
@@ -233,7 +225,6 @@ Rectangle {
             anchors.right: parent.right
             anchors.rightMargin: 7
             horizontalAlignment: Text.AlignRight
-            font.pixelSize: 15
         }
 
         Text {
@@ -246,7 +237,6 @@ Rectangle {
             anchors.right: parent.right
             anchors.rightMargin: 7
             horizontalAlignment: Text.AlignRight
-            font.pixelSize: 15
         }
 
         Text {
@@ -259,7 +249,6 @@ Rectangle {
             anchors.right: parent.right
             anchors.rightMargin: 7
             horizontalAlignment: Text.AlignRight
-            font.pixelSize: 15
         }
 
         Text {
@@ -272,7 +261,6 @@ Rectangle {
             anchors.right: parent.right
             anchors.rightMargin: 7
             horizontalAlignment: Text.AlignRight
-            font.pixelSize: 15
         }
 
         Rectangle {
@@ -297,6 +285,44 @@ Rectangle {
         }
     }
 
+    Text {
+        id: txt_hicriTakvim
+        x: 91
+        y: 68
+        height: 12
+        color: "#00ff00"
+        text: "27 Ramazan 1453"
+        anchors.right: rct_vakitler.right
+        anchors.rightMargin: 7
+        font.pointSize: 9
+        horizontalAlignment: Text.AlignHCenter
+    }
+
+    Text {
+        id: lbl_miladi
+        y: 50
+        height: 12
+        color: "#ffffff"
+        text: qsTr("Gregorian:")
+        anchors.left: rct_vakitler.left
+        anchors.leftMargin: 7
+        horizontalAlignment: Text.AlignLeft
+        font.pointSize: 9
+        fontSizeMode: Text.HorizontalFit
+    }
+
+    Text {
+        id: lbl_hicri
+        y: 68
+        height: 12
+        color: "#00ff00"
+        text: qsTr("Hijri:")
+        anchors.leftMargin: 7
+        horizontalAlignment: Text.AlignLeft
+        font.pointSize: 9
+        anchors.left: rct_vakitler.left
+        fontSizeMode: Text.HorizontalFit
+    }
     Rectangle {
         id: rct_updateNeed
         enabled: visible
@@ -312,7 +338,6 @@ Rectangle {
             anchors.horizontalCenter: parent.horizontalCenter
             wrapMode: Text.WordWrap
             horizontalAlignment: Text.AlignHCenter
-            font.pixelSize: 15
         }
 
         Button {
@@ -337,49 +362,10 @@ Rectangle {
             visible: false
             font.bold: false
             anchors.horizontalCenterOffset: 0
-            font.pixelSize: 15
+
             wrapMode: Text.WordWrap
             anchors.horizontalCenter: parent.horizontalCenter
             horizontalAlignment: Text.AlignHCenter
         }
-    }
-
-    Text {
-        id: txt_hicriTakvim
-        x: 91
-        y: 68
-        height: 12
-        color: "#00ff00"
-        text: "27 Ramazan 1453"
-        anchors.right: rct_vakitler.right
-        anchors.rightMargin: 7
-        font.pixelSize: 13
-        horizontalAlignment: Text.AlignHCenter
-    }
-
-    Text {
-        id: lbl_miladi
-        y: 50
-        height: 12
-        color: "#ffffff"
-        text: qsTr("Gregorian:")
-        anchors.left: rct_vakitler.left
-        anchors.leftMargin: 7
-        horizontalAlignment: Text.AlignLeft
-        font.pixelSize: 13
-        fontSizeMode: Text.HorizontalFit
-    }
-
-    Text {
-        id: lbl_hicri
-        y: 68
-        height: 12
-        color: "#00ff00"
-        text: qsTr("Hijri:")
-        anchors.leftMargin: 7
-        horizontalAlignment: Text.AlignLeft
-        font.pixelSize: 13
-        anchors.left: rct_vakitler.left
-        fontSizeMode: Text.HorizontalFit
     }
 }
