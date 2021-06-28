@@ -8,6 +8,6 @@ a Qt-Based Cross-Platform Prayer Times application.
 ## Download
 You can download releases for these systems:
 - Windows (.rar)
-- Pardus 19 | Ubuntu 18.04 | Debian (.deb)
+- Linux: [Flathub](https://flathub.org/apps/details/com.eminfedar.vaktisalah)
 
 Go to the [releases page](https://github.com/eminfedar/vaktisalah/releases)
