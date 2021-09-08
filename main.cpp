@@ -54,7 +54,6 @@ int main(int argc, char *argv[])
 
     // Get Translations
     QTranslator t;
-    qDebug() << QLocale::system().name();
     if (t.load(":/translations/vaktisalah_" + QLocale::system().name())) {
         app.installTranslator(&t);
     } else {

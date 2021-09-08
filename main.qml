@@ -16,7 +16,7 @@ Window {
 
     title: "Vakt-i Salah"
 
-    flags: Qt.FramelessWindowHint | Qt.Window
+    flags: Qt.FramelessWindowHint | Qt.ToolTip
 
     property string settingsPath: "settings.json";
     property date lastUpdateDate: new Date("01/01/2000");
@@ -383,7 +383,6 @@ Window {
 
     function updatePrayerTimes(callback) {
         var selectedDistrictID = districts[selectedDistrict]["id"]
-        console.log('ilce:' + selectedDistrictID)
         httpGet("https://ezanvakti.herokuapp.com/vakitler?ilce=" + selectedDistrictID, function(xhr) {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
