@@ -1,5 +1,5 @@
 import QtQuick 2.12
-import QtQuick.Controls 2.15
+import QtQuick.Controls 2.12
 import QtQuick.Controls.Universal 2.12
 
 Rectangle {
@@ -148,6 +148,7 @@ Rectangle {
             y: 30
             color: "#ffffff"
             text: qsTr("Sunrise")
+            font.pointSize: 11
         }
 
         Text {
@@ -156,6 +157,7 @@ Rectangle {
             y: 122
             color: "#ffffff"
             text: qsTr("Isha")
+            font.pointSize: 11
         }
 
         Text {
@@ -165,6 +167,7 @@ Rectangle {
             height: 20
             color: "#ffffff"
             text: qsTr("Maghrib")
+            font.pointSize: 11
         }
 
         Text {
@@ -173,6 +176,7 @@ Rectangle {
             y: 76
             color: "#ffffff"
             text: qsTr("Asr")
+            font.pointSize: 11
         }
 
         Text {
@@ -181,6 +185,7 @@ Rectangle {
             y: 53
             color: "#ffffff"
             text: qsTr("Dhuhr")
+            font.pointSize: 11
         }
 
         Text {
@@ -189,6 +194,7 @@ Rectangle {
             y: 7
             color: "#ffffff"
             text: qsTr("Fajr")
+            font.pointSize: 11
         }
 
         Text {
@@ -201,6 +207,7 @@ Rectangle {
             anchors.right: parent.right
             anchors.rightMargin: 7
             horizontalAlignment: Text.AlignRight
+            font.pointSize: 11
         }
 
         Text {
@@ -213,6 +220,7 @@ Rectangle {
             anchors.right: parent.right
             anchors.rightMargin: 7
             horizontalAlignment: Text.AlignRight
+            font.pointSize: 11
         }
 
         Text {
@@ -225,6 +233,7 @@ Rectangle {
             anchors.right: parent.right
             anchors.rightMargin: 7
             horizontalAlignment: Text.AlignRight
+            font.pointSize: 11
         }
 
         Text {
@@ -237,6 +246,7 @@ Rectangle {
             anchors.right: parent.right
             anchors.rightMargin: 7
             horizontalAlignment: Text.AlignRight
+            font.pointSize: 11
         }
 
         Text {
@@ -249,6 +259,7 @@ Rectangle {
             anchors.right: parent.right
             anchors.rightMargin: 7
             horizontalAlignment: Text.AlignRight
+            font.pointSize: 11
         }
 
         Text {
@@ -261,6 +272,7 @@ Rectangle {
             anchors.right: parent.right
             anchors.rightMargin: 7
             horizontalAlignment: Text.AlignRight
+            font.pointSize: 11
         }
 
         Rectangle {

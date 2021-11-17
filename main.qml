@@ -1,5 +1,5 @@
 import QtQuick 2.12
-import QtQuick.Controls 2.15
+import QtQuick.Controls 2.12
 import QtQuick.Controls.Universal 2.12
 import QtQuick.Window 2.12
 import QtMultimedia 5.12
@@ -49,8 +49,7 @@ Window {
         xhr.send('');
     }
 
-
-    Component.onCompleted: {
+    Component.onCompleted: function() {
         readSettings(); // Read from settings.json
 
         var timeDiff = Math.abs(new Date().getTime() - lastUpdateDate.getTime());
@@ -342,6 +341,7 @@ Window {
             selectedCity = settingsForm.cmb_cities.currentText
             var selectedCityID = cities[selectedCity]["id"]
 
+
             httpGet("https://namazvakitleri.diyanet.gov.tr/tr-TR/home/GetRegList?ChangeType=state&Culture=tr-TR&StateId=" + selectedCityID, function(xhr) {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
                     var districtList = JSON.parse(xhr.responseText)["StateRegionList"]
@@ -383,7 +383,7 @@ Window {
 
     function updatePrayerTimes(callback) {
         var selectedDistrictID = districts[selectedDistrict]["id"]
-        httpGet("https://ezanvakti.herokuapp.com/vakitler?ilce=" + selectedDistrictID, function(xhr) {
+        httpGet("https://ezanvakti.herokuapp.com/vakitler/" + selectedDistrictID, function(xhr) {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
                     mainForm.rct_updateNeed.visible = false
