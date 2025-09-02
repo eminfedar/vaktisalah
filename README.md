@@ -1,3 +1,8 @@
+## ⚠️THIS APPLICATION IS OLD & ARCHIVED. PLEASE PREFER THE NEW APP:⚠️
+New app: https://github.com/eminfedar/vaktisalah-gtk-rs
+
+---
+
 # Vakt-i Salah (Times of Prayer)
 a Qt-Based Cross-Platform Prayer Times application.
 *(Gets prayer times data from diyanet.gov.tr)*
